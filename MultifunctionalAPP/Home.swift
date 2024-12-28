@@ -24,7 +24,11 @@ struct Home:View{
                             }
                             }
                     Section(header: Text("小遊戲")){
+                        NavigationLink(destination:
+                            G1A2Bpage()
+                        ){
                             Text("1Ａ2Ｂ(開發中)")
+                        }
                      
                     }
                 }.navigationTitle("首頁")
@@ -32,4 +36,8 @@ struct Home:View{
         
         }
     }
+}
+
+#Preview{
+    ContentView()
 }

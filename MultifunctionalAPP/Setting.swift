@@ -35,3 +35,7 @@ struct Setting:View{
         }
     }
 }
+
+#Preview {
+    ContentView()
+}
