@@ -11,6 +11,8 @@ struct Home:View{
     @Binding var height :String
     @Binding var weight : String
     @Binding var bmi :String
+    @Binding var isOn : Bool
+    @State var menu : Bool = false
     var body: some View{
         VStack{
             NavigationView{
@@ -24,10 +26,19 @@ struct Home:View{
                             }
                             }
                     Section(header: Text("小遊戲")){
-                        NavigationLink(destination:
-                            G1A2Bpage()
-                        ){
-                            Text("1Ａ2Ｂ(開發中)")
+                        if menu{
+                            NavigationLink(destination:G1A2Bpage()
+                            ){
+                                Text("1Ａ2Ｂ(開發中)")
+                                Toggle("", isOn: $menu)
+                            }
+                        }else{
+                            HStack{
+                                Text("1Ａ2Ｂ(開發中)")
+                                Spacer()
+                                Toggle("", isOn: $menu)
+                            }
+                                
                         }
                      
                     }

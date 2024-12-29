@@ -12,7 +12,7 @@ struct BMIpage: View{
     @Binding var weight: String
     @Binding var bmi:String
     var body: some View{
-        VStack {
+        ScrollView {
 //            Text("BMI計算器").padding()
             VStack(alignment: .leading, spacing: 10) {
                 Text("BMI介紹")
@@ -35,32 +35,43 @@ struct BMIpage: View{
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }
-            .padding()
+            .padding(10)
             .background()
             .cornerRadius(12)
             .shadow(color:.primary.opacity(0.5),radius: 5)
-            .padding(.horizontal)
-            ZStack(alignment: .trailing){
+            .padding()
+            HStack() {
                 TextField("輸入身高(cm)", text: $height)
-                    .keyboardType(.numberPad).textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+                    .padding(.vertical,4).padding(.leading,4)
                 if !height.isEmpty {
-                    Button(action:{
-                        height = ""
-                    }){
-                        Image(systemName:"xmark.circle.fill").foregroundColor(Color.gray)
-                    }.padding(.trailing,20)
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundColor(.gray)
+                        .padding(.trailing, 4)
+                        .onTapGesture {
+                            height = ""
+                    }
                 }
             }
-            ZStack(alignment:.trailing){
-                TextField("輸入體重(kg)", text: $weight).keyboardType(.numberPad).textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+            .background()
+            .cornerRadius(8)
+            .padding()
+            .shadow(color: .primary, radius: 1)
+            HStack() {
+                TextField("輸入體重(kg)", text: $weight)
+                    .padding(.vertical,4).padding(.leading,4)
                 if !weight.isEmpty {
-                    Button(action:{
-                        weight = ""
-                    }){
-                        Image(systemName:"xmark.circle.fill").foregroundColor(Color.gray)
-                    }.padding(.trailing,20)
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundColor(.gray)
+                        .padding(.trailing, 4)
+                        .onTapGesture {
+                            weight = ""
+                    }
                 }
             }
+            .background()
+            .cornerRadius(8)
+            .padding()
+            .shadow(color: .primary, radius: 1)
                 Button(action: {
                     bmi = BMICalculator()}
                 ){
@@ -86,6 +97,9 @@ struct BMIpage: View{
     }
 }
 
-#Preview {
-ContentView()
+#Preview{
+    @State var height: String = ""
+    @State var weight: String = ""
+    @State var bmi: String = ""
+    BMIpage(height: $height, weight: $weight, bmi: $bmi)
 }
