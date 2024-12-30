@@ -26,21 +26,7 @@ struct Home:View{
                             }
                             }
                     Section(header: Text("小遊戲")){
-                        if menu{
-                            NavigationLink(destination:G1A2Bpage()
-                            ){
-                                Text("1Ａ2Ｂ(開發中)")
-                                Toggle("", isOn: $menu)
-                            }
-                        }else{
-                            HStack{
-                                Text("1Ａ2Ｂ(開發中)")
-                                Spacer()
-                                Toggle("", isOn: $menu)
-                            }
-                                
-                        }
-                     
+                        Text("1Ａ2Ｂ(開發中)")
                     }
                 }.navigationTitle("首頁")
             }
