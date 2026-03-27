@@ -24,17 +24,36 @@ struct G1A2Bpage: View {
     @FocusState private var isInputFocused: Bool
     @Environment(\.presentationMode) var presentationMode
 
+    @Environment(\.colorScheme) var colorScheme
+
+    var backgroundColor: Color {
+        colorScheme == .dark ? Color(red: 0.15, green: 0.15, blue: 0.2) : Color(red: 0.95, green: 0.94, blue: 0.92)
+    }
+
+    var cardBackground: Color {
+        colorScheme == .dark ? Color(red: 0.2, green: 0.22, blue: 0.28) : Color(red: 1.0, green: 0.98, blue: 0.95)
+    }
+
+    var inputBackground: Color {
+        colorScheme == .dark ? Color(red: 0.12, green: 0.14, blue: 0.18) : Color(red: 0.98, green: 0.96, blue: 0.93)
+    }
+
+    var accentColor: Color {
+        colorScheme == .dark ? Color(red: 1.0, green: 0.75, blue: 0.4) : Color(red: 0.95, green: 0.6, blue: 0.2)
+    }
+
     var body: some View {
         ZStack{
-            setColor(red: 230, green: 213, blue: 183)
+            backgroundColor
+                .ignoresSafeArea()
             VStack(spacing: 20){
                 // 狀態顯示區
                 ZStack{
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(setColor(red: 244, green: 233, blue: 215))
+                        .fill(cardBackground)
                         .frame(height: 80)
                         .padding(.horizontal)
-                        .shadow(radius: 5)
+                        .shadow(color: Color.black.opacity(0.1), radius: 5)
                     VStack(spacing: 5) {
                         Text(gameStatus)
                             .font(.system(size: isGameWon ? 24 : 20, weight: .bold))
@@ -51,20 +70,20 @@ struct G1A2Bpage: View {
                 if !isGameWon {
                     ZStack{
                         RoundedRectangle(cornerRadius: 20)
-                            .fill(setColor(red: 29, green: 37, blue: 42))
+                            .fill(inputBackground)
                             .frame(height: 120)
                             .padding(.horizontal)
-                            .shadow(color: setColor(red: 34, green: 53, blue: 74), radius: 10)
+                            .shadow(color: accentColor.opacity(0.3), radius: 10)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 20)
-                                    .stroke(setColor(red: 34, green: 53, blue: 74), style: StrokeStyle(lineWidth: 10))
+                                    .stroke(accentColor.opacity(0.6), style: StrokeStyle(lineWidth: 3))
                                     .padding(.horizontal)
                             )
 
                         HStack(spacing: 15) {
                             TextField("", text: $currentGuess)
                                 .font(.system(size: 60, weight: .bold))
-                                .foregroundColor(setColor(red: 239, green: 189, blue: 99))
+                                .foregroundColor(accentColor)
                                 .multilineTextAlignment(.center)
                                 .keyboardType(.numberPad)
                                 .focused($isInputFocused)
@@ -80,7 +99,7 @@ struct G1A2Bpage: View {
                                 }) {
                                     Image(systemName: "xmark.circle.fill")
                                         .font(.system(size: 24))
-                                        .foregroundColor(setColor(red: 239, green: 189, blue: 99).opacity(0.6))
+                                        .foregroundColor(accentColor.opacity(0.6))
                                 }
                             }
                         }
@@ -94,8 +113,15 @@ struct G1A2Bpage: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .frame(height: 50)
-                            .background(currentGuess.count == 4 ? Color.blue : Color.gray)
+                            .background(
+                                LinearGradient(
+                                    colors: currentGuess.count == 4 ? [Color.blue, Color.blue.opacity(0.8)] : [Color.gray, Color.gray.opacity(0.8)],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
                             .cornerRadius(12)
+                            .shadow(color: currentGuess.count == 4 ? Color.blue.opacity(0.3) : Color.clear, radius: 5)
                             .padding(.horizontal)
                     }
                     .disabled(currentGuess.count != 4)
@@ -109,8 +135,15 @@ struct G1A2Bpage: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .frame(height: 50)
-                            .background(Color.green)
+                            .background(
+                                LinearGradient(
+                                    colors: [Color.green, Color.green.opacity(0.8)],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
                             .cornerRadius(12)
+                            .shadow(color: Color.green.opacity(0.3), radius: 5)
                             .padding(.horizontal)
                     }
                 }
@@ -134,8 +167,9 @@ struct G1A2Bpage: View {
                                             .foregroundColor(record.result == "4A0B" ? .green : .orange)
                                     }
                                     .padding()
-                                    .background(Color.white.opacity(0.8))
+                                    .background(cardBackground)
                                  .cornerRadius(10)
+                                    .shadow(color: Color.black.opacity(0.05), radius: 3)
                                     .padding(.horizontal)
                                 }
                             }
@@ -147,11 +181,9 @@ struct G1A2Bpage: View {
             }
             .padding(.top, 20)
         }
-        .toolbarBackground(setColor(red: 46, green: 66, blue: 85), for: .navigationBar)
         .toolbar {
             ToolbarItem(placement: .principal){
                 Text(NSLocalizedString("1A2B", comment: ""))
-                    .foregroundColor(setColor(red: 245, green: 235, blue: 215))
                     .font(.system(size: 50, weight: .bold))
                     .padding(.vertical, 20)
             }
@@ -160,18 +192,15 @@ struct G1A2Bpage: View {
                     presentationMode.wrappedValue.dismiss()
                 }){
                     Text(NSLocalizedString("返回", comment: ""))
-                        .foregroundColor(setColor(red: 245, green: 235, blue: 215))
                 }
             }
             ToolbarItem(placement: .topBarTrailing){
                 Button(action: startNewGame){
                     Image(systemName: "arrow.clockwise")
-                        .foregroundColor(setColor(red: 245, green: 235, blue: 215))
                 }
             }
         }
         .navigationBarBackButtonHidden()
-   .toolbarBackground(.visible, for: .navigationBar)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             if targetNumber.isEmpty {
