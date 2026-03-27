@@ -10,19 +10,23 @@ import SwiftUI
 struct ContentView: View {
     @State var height : String = ""
     @State var weight : String = ""
-    @State var bmi : String = "輸入數值以計算"
+    @State var bmi : String = ""
     @State var selected : Int = 0
     @State var isOn : Bool = false
-
-    
     var body: some View {
-        TabView{
+        TabView(selection: $selected){
             Home(height: $height, weight: $weight, bmi:$bmi,isOn:$isOn)
-                .tabItem{Label("首頁",systemImage: "house")}
+                .tabItem{
+                    Label(NSLocalizedString("Home", comment: ""), systemImage: "house.fill")
+                }
+                .tag(0)
             Setting()
-                .tabItem{Label("設定", systemImage: "gear")
-            }
+                .tabItem{
+                    Label(NSLocalizedString("Setting", comment: ""), systemImage: "gear")
+                }
+                .tag(1)
         }
+        .tint(.blue)
     }
 }
 

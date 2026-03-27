@@ -9,13 +9,19 @@ import SwiftUI
 
 struct Setting:View{
     @State var show = false
+
+    var appVersion: String {
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
+        return version
+    }
+
     var body:some View{
         ZStack{
             VStack{
                 NavigationView {
                     List{
-                        
-                        Section(header: Text("關於")){
+
+                        Section(header: Text(NSLocalizedString("關於", comment: ""))){
                             HStack{
                                 Spacer()
                                 VStack{
@@ -26,9 +32,9 @@ struct Setting:View{
                                                 ,radius: 11,x: 1, y: 1).onTapGesture {
                                             show = true
                                         }
-                                    Text("多功能APP").padding(5)
-                                    Text("Version:1.0.1").padding(5)
-                                    Text("Copyright © 2024 Toolspeter").padding(5)
+                                    Text(NSLocalizedString("多功能APP", comment: "")).padding(5)
+                                    Text("\(NSLocalizedString("Version", comment: "")): \(appVersion)").padding(5)
+                                    Text(NSLocalizedString("Copyright © 2026 Toolspeter", comment: "")).padding(5)
                                 }
                                 Spacer()
                             }
@@ -42,7 +48,7 @@ struct Setting:View{
                             }
                         }
                     }
-                    .navigationTitle("設定")
+                    .navigationTitle(NSLocalizedString("Setting", comment: ""))
                     .navigationBarBackButtonHidden(true)
                     .navigationBarTitleDisplayMode(.inline)
                 }
@@ -52,7 +58,7 @@ struct Setting:View{
 //                    progressbar()
 //                    progressbar_cut().foregroundStyle(.background)
 //                    Text("100%").font(.system(size: 25)).fontWeight(.bold)
-//                    
+//
 //                }.background(.gray.opacity(0.5))
 //                    .onTapGesture {
 //                        show = false
@@ -86,7 +92,7 @@ struct progressbar:Shape{
             path.addArc(center: center, radius: 60, startAngle: Angle(degrees: 199.0), endAngle: Angle(degrees: 233.0), clockwise: false)
             path.move(to:center)
             path.addArc(center: center, radius: 60, startAngle: Angle(degrees: 235.0), endAngle: Angle(degrees: 269.0), clockwise: false)
-            
+
         }
     }
 }

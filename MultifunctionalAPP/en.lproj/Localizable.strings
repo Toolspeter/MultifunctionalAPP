@@ -1,7 +1,167 @@
-/* 
+
+/*
   Localizable.strings
   MultifunctionalAPP
 
   Created by Peter Chen on 2025/4/5.
-  
+
 */
+
+// Tab Bar
+"Home" = "Home";
+"Setting" = "Settings";
+
+// Home Page Sections
+"widget" = "Widgets";
+"Mini-Game" = "Mini Games";
+
+// Tools
+"BMI Calculator" = "BMI Calculator";
+"Unit Converter" = "Unit Converter";
+"Tip Calculator" = "Tip Calculator";
+"QR Code Generator" = "QR Code Generator";
+"Password Generator" = "Password Generator";
+
+// Games
+"1A2B" = "1A2B";
+"Memory Game" = "Memory Game";
+"Sudoku" = "Sudoku";
+"Tic Tac Toe" = "Tic Tac Toe";
+"2048" = "2048";
+
+// BMI Calculator
+"BMI介紹" = "About BMI";
+"BMI（身體質量指數）是用來評估體重是否健康的指標。" = "BMI (Body Mass Index) is an indicator used to assess whether your weight is healthy.";
+"根據體重（公斤）和身高（公分）的比例，計算得出。" = "It is calculated based on the ratio of weight (kg) to height (cm).";
+"BMI值的範圍：" = "BMI Range:";
+"體重過輕" = "Underweight";
+"正常範圍" = "Normal";
+"體重過重" = "Overweight";
+"輕度肥胖" = "Mild Obesity";
+"中度肥胖" = "Moderate Obesity";
+"重度肥胖" = "Severe Obesity";
+"輸入身高(cm)" = "Enter height (cm)";
+"輸入體重(kg)" = "Enter weight (kg)";
+"計算 BMI" = "Calculate BMI";
+"您的 BMI" = "Your BMI";
+"健康建議" = "Health Advice";
+"BMI 指標" = "BMI Indicator";
+"建議增加營養攝取，適度運動以增加肌肉量。" = "Increase nutrition intake and exercise moderately to build muscle mass.";
+"保持良好的飲食習慣和規律運動。" = "Maintain good eating habits and regular exercise.";
+"建議控制飲食，增加運動量。" = "Control diet and increase physical activity.";
+"建議諮詢營養師，制定減重計畫。" = "Consult a nutritionist to develop a weight loss plan.";
+"建議尋求專業醫療協助，進行健康管理。" = "Seek professional medical assistance for health management.";
+"強烈建議就醫檢查，制定完整的健康改善計畫。" = "Strongly recommend medical examination and comprehensive health improvement plan.";
+"請輸入數值" = "Please enter a value";
+
+// Unit Converter
+"轉換類型" = "Conversion Type";
+"長度" = "Length";
+"重量" = "Weight";
+"溫度" = "Temperature";
+"面積" = "Area";
+"輸入數值" = "Enter value";
+"從" = "From";
+"到" = "To";
+"轉換結果" = "Result";
+"公尺 (m)" = "Meter (m)";
+"公分 (cm)" = "Centimeter (cm)";
+"公里 (km)" = "Kilometer (km)";
+"英吋 (in)" = "Inch (in)";
+"英尺 (ft)" = "Foot (ft)";
+"碼 (yd)" = "Yard (yd)";
+"英里 (mi)" = "Mile (mi)";
+"公斤 (kg)" = "Kilogram (kg)";
+"公克 (g)" = "Gram (g)";
+"毫克 (mg)" = "Milligram (mg)";
+"磅 (lb)" = "Pound (lb)";
+"盎司 (oz)" = "Ounce (oz)";
+"噸 (t)" = "Ton (t)";
+"攝氏 (°C)" = "Celsius (°C)";
+"華氏 (°F)" = "Fahrenheit (°F)";
+"克氏 (K)" = "Kelvin (K)";
+"平方公尺 (m²)" = "Square Meter (m²)";
+"平方公分 (cm²)" = "Square Centimeter (cm²)";
+"平方公里 (km²)" = "Square Kilometer (km²)";
+"公頃 (ha)" = "Hectare (ha)";
+"英畝 (ac)" = "Acre (ac)";
+"平方英尺 (ft²)" = "Square Foot (ft²)";
+
+// Tip Calculator
+"帳單金額" = "Bill Amount";
+"小費比例" = "Tip Percentage";
+"分攤人數" = "Number of People";
+"小費金額" = "Tip Amount";
+"總金額" = "Total Amount";
+"每人應付" = "Per Person";
+
+// 1A2B Game
+"請輸入4位不重複的數字" = "Enter 4 unique digits";
+"已猜測 %d 次" = "Attempts: %d";
+"猜測" = "Guess";
+"再玩一次" = "Play Again";
+"猜測記錄" = "Guess History";
+"繼續猜測..." = "Keep guessing...";
+"🎉 恭喜你猜對了！" = "🎉 Congratulations!";
+"返回" = "Back";
+
+// Memory Game
+"移動次數" = "Moves";
+"配對成功" = "Matched";
+"重新開始" = "Restart";
+"恭喜過關！" = "Congratulations!";
+"共使用 %d 步" = "Total moves: %d";
+"記憶翻牌" = "Memory Game";
+
+// Settings
+"關於" = "About";
+"多功能APP" = "Multifunctional APP";
+"Version" = "Version";
+"Copyright © 2026 Toolspeter" = "Copyright © 2026 Toolspeter";
+
+// Common
+"確定" = "OK";
+"取消" = "Cancel";
+"完成" = "Done";
+"清除" = "Clear";
+
+// QR Code Generator
+"輸入文字或網址" = "Enter text or URL";
+"生成 QR Code" = "Generate QR Code";
+"儲存到相簿" = "Save to Photos";
+
+// Password Generator
+"生成的密碼" = "Generated Password";
+"點擊生成密碼" = "Tap to generate password";
+"密碼長度" = "Password Length";
+"包含字元" = "Include Characters";
+"大寫字母 (A-Z)" = "Uppercase (A-Z)";
+"小寫字母 (a-z)" = "Lowercase (a-z)";
+"數字 (0-9)" = "Numbers (0-9)";
+"符號 (!@#$%)" = "Symbols (!@#$%)";
+"生成密碼" = "Generate Password";
+"已複製" = "Copied";
+"密碼已複製到剪貼簿" = "Password copied to clipboard";
+"密碼強度" = "Password Strength";
+"弱" = "Weak";
+"中等" = "Medium";
+"強" = "Strong";
+
+// Sudoku
+"難度" = "Difficulty";
+"簡單" = "Easy";
+"困難" = "Hard";
+"新遊戲" = "New Game";
+"檢查" = "Check";
+"恭喜！" = "Congratulations!";
+"你成功完成了數獨！" = "You completed the Sudoku!";
+
+// Tic Tac Toe
+"平局！" = "Draw!";
+"輪到 %@" = "%@'s Turn";
+"🎉 %@ 獲勝！" = "🎉 %@ Wins!";
+
+// 2048
+"分數" = "Score";
+"遊戲結束" = "Game Over";
+"最終分數：%d" = "Final Score: %d";
